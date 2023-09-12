@@ -9,8 +9,10 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 31
-        versionCode 2
-        versionName "1.0.1"
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionNameString
+        //生成的文件名带版本名的
+        archivesBaseName = "libnative-v${versionName}-${rootProject.ext.appBuildDateTime}"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -18,8 +20,8 @@ android {
             cmake {
                 cppFlags ""
             }
-            ndk{
-                abiFilters 'armeabi-v7a','arm64-v8a', "x86", "x86_64"
+            ndk {
+                abiFilters 'armeabi-v7a', 'arm64-v8a', "x86", "x86_64"
             }
         }
     }

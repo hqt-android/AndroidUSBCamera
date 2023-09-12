@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 // Top-level build file where you can add configuration options libuvccommon to all sub-projects/modules.
 buildscript {
     repositories {
@@ -41,8 +43,16 @@ ext {
     materialVersion = '1.3.0'
     constraintlayoutVersion = '2.0.4'
     lifecycle_version = '2.2.0'
-    quick_version= '2.9.50'
-    dialog_version= '3.2.1'
+    quick_version = '2.9.50'
+    dialog_version = '3.2.1'
     bugly_version = '3.4.4'
     bugly_native_version = '3.9.0'
+
+    appBuildDateTime = releaseTime()
+}
+
+
+static def releaseTime() {
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmm")
+    return sdf.format(new Date())
 }

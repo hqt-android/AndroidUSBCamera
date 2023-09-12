@@ -12,6 +12,9 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionNameString
 
+        //生成的文件名带版本名的
+        archivesBaseName = "libausbc-v${versionName}-${rootProject.ext.appBuildDateTime}"
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }

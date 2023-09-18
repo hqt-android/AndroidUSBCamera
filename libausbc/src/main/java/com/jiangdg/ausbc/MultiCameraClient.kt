@@ -5,6 +5,7 @@ import android.content.res.Configuration
 import android.graphics.SurfaceTexture
 import android.hardware.usb.UsbDevice
 import android.os.*
+import android.util.Log
 import android.view.Surface
 import com.jiangdg.ausbc.callback.*
 import com.jiangdg.ausbc.camera.bean.CameraRequest
@@ -331,8 +332,9 @@ class MultiCameraClient(ctx: Context, callback: IDeviceConnectCallBack?) {
                         // if surface is null, force off screen render whatever mode
                         // and use init preview size for render size
                         mCameraRequest!!.renderMode = CameraRequest.RenderMode.OPENGL
-                        val screenWidth = view?.getSurfaceWidth() ?: previewWidth
                         val screenHeight = view?.getSurfaceHeight() ?: previewHeight
+                        val screenWidth = (screenHeight * previewWidth) / previewHeight
+                        Log.d(TAG, "screenWidth: $screenWidth screenHeight:$screenHeight")
                         val surface = view?.getSurface()
                         val previewCb = if (isRawPreviewData) {
                             null

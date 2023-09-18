@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         viewBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 //        replaceDemoFragment(DemoMultiCameraFragment())
-        replaceDemoFragment(DemoFragment())
+        replaceDemoFragment(MyDemoFragment())
 //        replaceDemoFragment(GlSurfaceFragment())
     }
 
@@ -93,9 +93,10 @@ class MainActivity : AppCompatActivity() {
                     return
                 }
 //                replaceDemoFragment(DemoMultiCameraFragment())
-                replaceDemoFragment(DemoFragment())
+                replaceDemoFragment(MyDemoFragment())
 //                replaceDemoFragment(GlSurfaceFragment())
             }
+
             REQUEST_STORAGE -> {
                 val hasCameraPermission =
                     PermissionChecker.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE)
@@ -105,6 +106,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 // todo
             }
+
             else -> {
             }
         }
@@ -112,7 +114,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        immersionBar= null
+        immersionBar = null
     }
 
     private fun setStatusBar() {

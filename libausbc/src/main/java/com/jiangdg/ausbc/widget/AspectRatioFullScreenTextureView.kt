@@ -97,6 +97,6 @@ class AspectRatioFullScreenTextureView : TextureView, IAspectRatio {
     }
 
     companion object {
-        private const val TAG = "AspectRatioFullScreenTextureView"
+        private const val TAG = "FullScreenTextureView"
     }
 }
